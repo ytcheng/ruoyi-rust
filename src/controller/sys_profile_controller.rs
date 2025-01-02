@@ -3,7 +3,7 @@ use actix_web::{get, HttpRequest,  put, Responder, web};
 
 use crate::domain::vo::{RespJson, RespVO};
 use crate::service::CONTEXT;
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 use crate::domain::dto::{PasswordUpdateDTO, UserUpdateDTO};
 use crate::util::password_encoder::PasswordEncoder;
 

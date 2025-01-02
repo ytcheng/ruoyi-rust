@@ -1,7 +1,7 @@
 use actix_web::{get, HttpRequest, post, put, Responder, web};
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 
-use crate::config::global_variables::{ADMIN_NAME};
+use crate::config::global_variables::ADMIN_NAME;
 use crate::domain::dto::{ UserAddDTO, UserPageDTO, UserRoleAuthQueryDTO, UserUpdateDTO};
 use crate::domain::table::SysUser;
 use crate::domain::vo::{ PageVO, RespJson, RespVO};
@@ -149,7 +149,7 @@ pub async fn reset_pwd(arg: web::Json<UserUpdateDTO>) -> impl Responder {
 
     //user.password = Some(PasswordEncoder::encode(arg.password.as_ref().unwrap()));
 
-    ///   user.setUpdateBy(getUsername());
+    //   user.setUpdateBy(getUsername());
 
 
     //  CONTEXT.sys_user_service.update(&user_id).await.unwrap();

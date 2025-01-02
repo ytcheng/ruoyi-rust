@@ -4,7 +4,7 @@ use crate::domain::vo::{PageVO, RespVO};
 use crate::service::CONTEXT;
 use actix_web::{get, post, put, web, Responder, HttpRequest, delete};
 use crate::config::global_variables::STATUS_NORMAL;
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 
 #[get("/dict/type/list")]
 #[has_permit("system:dict:query")]

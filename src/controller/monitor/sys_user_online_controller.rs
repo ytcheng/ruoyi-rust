@@ -2,7 +2,7 @@ use crate::domain::vo:: {RespJson, RespVO, SysUserOnlineVO, UserCache};
 use crate::service::CONTEXT;
 use actix_web::{get, delete, web, Responder};
 use crate::config::cache_variables::LOGIN_TOKEN_KEY;
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 use actix_web::HttpRequest;
 use crate::error::Error;
 

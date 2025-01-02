@@ -1,7 +1,7 @@
 use actix_web::{ get, Responder, HttpRequest};
 
-use crate::domain::vo::{RespVO};
-use permit_lib::has_permit;
+use crate::domain::vo::RespVO;
+use permit_macro::has_permit;
 use crate::util::hardware::get_server_info;
 
 #[get("/server")]

@@ -1,4 +1,4 @@
-use actix_web::{HttpRequest};
+use actix_web::HttpRequest;
 use crate::config::cache_variables::LOGIN_TOKEN_KEY;
 use crate::config::global_variables::ADMIN_NAME;
 use crate::domain::vo::{JWTToken, RespVO, UserCache};

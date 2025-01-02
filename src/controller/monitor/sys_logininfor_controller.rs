@@ -3,7 +3,7 @@ use actix_web::{delete, get,   Responder, web,HttpRequest};
 use crate::domain::dto::LogininforPageDTO;
 use crate::domain::vo::{PageVO, RespVO};
 use crate::service::CONTEXT;
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 
 #[get("/logininfor/list")]
 #[has_permit("monitor:logininfor:query")]

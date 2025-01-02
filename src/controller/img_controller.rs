@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use actix_web::{Responder};
+use actix_web::Responder;
 use captcha::Captcha;
 use captcha::filters::{Dots, Noise, Wave};
 use uuid::Uuid;

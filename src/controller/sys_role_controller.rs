@@ -3,7 +3,7 @@ use crate::domain::vo::{PageVO, RespJson, RespVO};
 use crate::service::CONTEXT;
 use actix_web::{get, post, put, web, Responder, HttpRequest, delete};
 use crate::domain::table::{SysRole, SysUserRole};
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 
 #[get("/role/list")]
 #[has_permit("system:role:query")]

@@ -5,13 +5,13 @@ authors = ["wizount <2537660666@qq.com>"]
 edition = "2021"
 
 
-[[bin]]
-name = "ruoyi_rust_prod"
-path = "src/main.rs"
+# [[bin]]
+# name = "ruoyi_rust_prod"
+# path = "src/main.rs"
 
-[[bin]]
-name = "ruoyi_rust_dev"
-path = "src/main.rs"
+# [[bin]]
+# name = "ruoyi_rust_dev"
+# path = "src/main.rs"
 
 #[build-dependencies]
 #tauri-build = { version = "1.2.0", features = [] }
@@ -74,7 +74,7 @@ base64 = "0.20.0"
 actix-web-validator = "5.0.1" #加入验证框架
 validator = { version = "0.16", features = ["derive"] }#加入验证框架
 
-permit-lib = { path = "./permit-lib" }
+# permit-lib = { path = "./permit-lib" }
 
 
 
@@ -83,6 +83,8 @@ permit-lib = { path = "./permit-lib" }
 sysinfo = "0.28.2"
 #ByteSize is an utility that easily makes bytes size representation and helps its arithmetic operations.
 bytesize = "1.2.0"
+
+permit_macro = { path = "src/macro/permit" }
 
 
 [profile.release]

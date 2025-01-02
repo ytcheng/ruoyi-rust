@@ -1,11 +1,11 @@
 use crate::domain::vo::{JWTToken, RespJson, RespVO};
 use crate::service::CONTEXT;
 use actix_web::{HttpRequest, Responder, web};
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 use crate::config::cache_variables::LOGIN_TOKEN_KEY;
 use crate::config::global_variables::LOGIN_SUC;
 use crate::domain::dto::SignInDTO;
-use crate::token_auth::{get_token};
+use crate::token_auth::get_token;
 use crate::web_data::get_user_name;
 
 // ///Check whether the token_auth and path are valid and accessible

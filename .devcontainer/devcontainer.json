@@ -1,0 +1,17 @@
+{
+	"name": "Ruoyi Rust Development",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "web",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"rust-lang.rust-analyzer",
+				"serayuzgur.crates",
+				"tamasfe.even-better-toml"
+			]
+		}
+	},
+	"remoteUser": "vscode",
+	"postCreateCommand": "cargo watch"
+} 

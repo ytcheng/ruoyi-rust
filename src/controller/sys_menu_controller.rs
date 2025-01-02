@@ -1,10 +1,10 @@
 use crate::domain::dto::{MenuAddDTO, MenuPageDTO, MenuUpdateDTO};
-use crate::domain::table::{SysMenu};
+use crate::domain::table::SysMenu;
 use crate::domain::vo::{RespJson, RespVO};
 use crate::service::CONTEXT;
 use actix_web::{get, post, put, delete, web, Responder, HttpRequest};
 use crate::config::global_variables::ADMIN_NAME;
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 
 #[get("/menu/list")]
 #[has_permit("system:menu:query")]

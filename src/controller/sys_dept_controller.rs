@@ -1,9 +1,9 @@
 use crate::domain::dto::{DeptAddDTO, DeptUpdateDTO, DeptQueryDTO};
 use crate::domain::table::SysDept;
-use crate::domain::vo::{ RespVO};
+use crate::domain::vo::RespVO;
 use crate::service::CONTEXT;
 use actix_web::{get, post, put, delete, web, Responder};
-use permit_lib::has_permit;
+use permit_macro::has_permit;
 use actix_web::HttpRequest;
 use crate::config::global_variables::STATUS_NORMAL;
 

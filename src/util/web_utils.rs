@@ -1,5 +1,5 @@
 use actix_http::header::{HeaderMap, USER_AGENT};
-use actix_web::{HttpRequest};
+use actix_web::HttpRequest;
 use rbatis::object_id::ObjectId;
 use rbatis::rbdc::datetime::DateTime;
 use user_agent_parser::UserAgentParser;
