@@ -63,3 +63,12 @@ pub async fn get_by_dict_type(dict_type: web::Path<String>) -> impl Responder {
     let dict_data_vo = CONTEXT.sys_dict_data_service.get_by_dict_type(&dict_type).await;
     RespVO::from_result(&dict_data_vo).resp_json()
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(page)
+        .service(detail)
+        .service(add)
+        .service(update)
+        .service(remove)
+        .service(get_by_dict_type);
+}

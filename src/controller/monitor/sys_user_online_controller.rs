@@ -49,3 +49,8 @@ pub async fn force_logout(token_id: web::Path<String>) -> impl Responder {
         RespVO::<u64>::from_success_info("强制失败！").resp_json()
     }
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(page)
+        .service(force_logout);
+}

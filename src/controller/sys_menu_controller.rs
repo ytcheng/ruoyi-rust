@@ -100,3 +100,13 @@ pub async fn role_menu_treeselect(req: HttpRequest, role_id: web::Path<String>) 
     res.insert("menus".to_string(), serde_json::json!(menu_select.unwrap()));
     res.resp_json()
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(role_menu_treeselect)
+        .service(treeselect)
+        .service(query_menu)
+        .service(detail)
+        .service(add)
+        .service(update)
+        .service(remove);
+}

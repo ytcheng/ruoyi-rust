@@ -61,3 +61,12 @@ pub async fn remove(dict_id: web::Path<String>) -> impl Responder {
         .remove(&dict_id).await;
     RespVO::from_result(&data).resp_json()
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(optionselect)
+        .service(page)
+        .service(detail)
+        .service(add)
+        .service(update)
+        .service(remove);
+}

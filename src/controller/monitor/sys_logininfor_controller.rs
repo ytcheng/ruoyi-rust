@@ -23,3 +23,8 @@ pub async fn remove(info_id: web::Path<String>) -> impl Responder {
         .await.unwrap();
     RespVO::<u64>::judge(data, "".to_string(), "删除失败！".to_string()).resp_json()
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(page)
+        .service(remove);
+}

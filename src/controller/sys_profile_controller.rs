@@ -70,3 +70,9 @@ pub async fn update_pwd(req: HttpRequest, arg: web::Query<PasswordUpdateDTO>) ->
         &PasswordEncoder::encode(new_password.as_ref().unwrap()), &user_id).await;
     return RespVO::from_result(&vo).resp_json();
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(profile)
+        .service(update_profile)
+        .service(update_pwd);
+}

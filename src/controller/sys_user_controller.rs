@@ -173,3 +173,16 @@ pub async fn change_status(req: HttpRequest, arg: web::Json<UserUpdateDTO>) -> i
         arg.0.status.unwrap(), &user_id).await;
     return RespVO::from_result(&vo).resp_json();
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(page)
+        .service(get_dept_tree)
+        .service(detail)
+        .service(add)
+        .service(update)
+        .service(remove)
+        .service(set_auth_roles)
+        .service(before_add)
+        .service(get_auth_roles)
+        .service(change_status);
+}

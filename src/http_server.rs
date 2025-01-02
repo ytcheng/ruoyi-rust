@@ -55,90 +55,21 @@ pub fn build_server(base_api: &'static str) -> Server {
             //.service(fs::Files::new("/assets", "../dist/assets").show_files_listing())
             .service(web::scope(&base_api).service(
                 web::scope("/system") //系统应用
-                    .service(sys_menu_controller::role_menu_treeselect)
-                    .service(sys_menu_controller::treeselect)
-                    .service(sys_menu_controller::query_menu)
-                    .service(sys_menu_controller::detail)
-                    .service(sys_menu_controller::add)
-                    .service(sys_menu_controller::update)
-                    .service(sys_menu_controller::remove)
-
-                    .service(sys_profile_controller::profile)
-                    .service(sys_profile_controller::update_profile)
-                    .service(sys_profile_controller::update_pwd)
-
-                    .service(sys_user_controller::page)
-                    .service(sys_user_controller::get_dept_tree)
-                    .service(sys_user_controller::detail)
-                    .service(sys_user_controller::add)
-                    .service(sys_user_controller::update)
-                    .service(sys_user_controller::remove)
-                    .service(sys_user_controller::set_auth_roles)
-                    .service(sys_user_controller::before_add)
-                    .service(sys_user_controller::get_auth_roles)
-                    .service(sys_user_controller::change_status)
-
-
-                    .service(sys_role_controller::page)
-                    .service(sys_role_controller::detail)
-                    .service(sys_role_controller::add)
-                    .service(sys_role_controller::update)
-                    .service(sys_role_controller::remove)
-                    .service(sys_role_controller::auth_user_list)
-                    .service(sys_role_controller::unallocated_user_list)
-                    .service(sys_role_controller::change_status)
-                    .service(sys_role_controller::cancel_user)
-                    .service(sys_role_controller::auth_user_all)
-                    .service(sys_role_controller::cancel_user_all)
-
-
-                    .service(sys_dict_type_controller::optionselect)
-                    .service(sys_dict_type_controller::page)
-                    .service(sys_dict_type_controller::detail)
-                    .service(sys_dict_type_controller::add)
-                    .service(sys_dict_type_controller::update)
-                    .service(sys_dict_type_controller::remove)
-
-                    .service(sys_dict_data_controller::page)
-                    .service(sys_dict_data_controller::detail)
-                    .service(sys_dict_data_controller::add)
-                    .service(sys_dict_data_controller::update)
-                    .service(sys_dict_data_controller::remove)
-                    .service(sys_dict_data_controller::get_by_dict_type)
-
-                    .service(sys_config_controller::page)
-                    .service(sys_config_controller::detail)
-                    .service(sys_config_controller::add)
-                    .service(sys_config_controller::update)
-                    .service(sys_config_controller::remove)
-
-                    .service(sys_dept_controller::page)
-                    .service(sys_dept_controller::detail)
-                    .service(sys_dept_controller::add)
-                    .service(sys_dept_controller::update)
-                    .service(sys_dept_controller::remove)
-
-                    .service(sys_post_controller::page)
-                    .service(sys_post_controller::detail)
-                    .service(sys_post_controller::add)
-                    .service(sys_post_controller::update)
-                    .service(sys_post_controller::remove)
-
-                    .service(sys_notice_controller::page)
-                    .service(sys_notice_controller::detail)
-                    .service(sys_notice_controller::add)
-                    .service(sys_notice_controller::update)
-                    .service(sys_notice_controller::remove)
+                    .configure(sys_menu_controller::init)
+                    .configure(sys_profile_controller::init)
+                    .configure(sys_user_controller::init)
+                    .configure(sys_role_controller::init)
+                    .configure(sys_dict_type_controller::init)
+                    .configure(sys_dict_data_controller::init)
+                    .configure(sys_config_controller::init)
+                    .configure(sys_dept_controller::init)
+                    .configure(sys_post_controller::init)
+                    .configure(sys_notice_controller::init)
             ).service(
-                web::scope("/monitor") //系统应
-                    .service(sys_logininfor_controller::page)
-                    .service(sys_logininfor_controller::remove)
-
-
-                    .service(sys_user_online_controller::page)
-                    .service(sys_user_online_controller::force_logout)
-
-                    .service(server_controller::server_info)
+                web::scope("/monitor")
+                    .configure(sys_logininfor_controller::init)
+                    .configure(sys_user_online_controller::init)
+                    .configure(server_controller::init)
             ).route("/captchaImage", web::get().to(img_controller::captcha))
                 .route(
                     "/login",

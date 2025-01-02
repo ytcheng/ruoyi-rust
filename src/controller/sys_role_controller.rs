@@ -106,3 +106,17 @@ pub async fn change_status(arg: web::Json<RoleUpdateDTO>) -> impl Responder {
     let res = CONTEXT.sys_role_service.update(data, vec![]).await;
     return RespVO::from_result(&res).resp_json();
 }
+
+pub fn init(cfg: &mut web::ServiceConfig) {
+    cfg.service(page)
+        .service(detail)
+        .service(add)
+        .service(update)
+        .service(remove)
+        .service(auth_user_list)
+        .service(unallocated_user_list)
+        .service(change_status)
+        .service(cancel_user)
+        .service(auth_user_all)
+        .service(cancel_user_all);
+}
